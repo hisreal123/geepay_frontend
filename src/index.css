@@ -8,3 +8,16 @@
 * {
   font-family: "Plus Jakarta Sans", sans-serif;
 }
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.scrollbar-hide:hover {
+  scrollbar-color: auto auto;
+}

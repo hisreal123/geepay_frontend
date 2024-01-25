@@ -10,8 +10,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.3",
+    "@ramonak/react-progress-bar": "^5.2.0",
+    "@table-library/react-table-library": "^4.1.7",
+    "ag-charts-react": "^9.0.2",
+    "chart.js": "^4.4.1",
+    "iconsax-react": "^0.0.8",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.0.1",
+    "react-responsive": "^9.0.2",
+    "react-router-dom": "^6.21.3",
+    "recharts": "^2.10.4"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
