@@ -50,6 +50,7 @@ const UserChart = () => {
               bottomLeft: 0,
               bottomRight: 0,
             },
+            barPercentage: 0.6,
           },
         ],
       },
@@ -102,7 +103,7 @@ const UserChart = () => {
   console.log(totalLabel);
 
   return (
-    <div className="user-chart text-sm md:textmd lg:text-lg border-[0.8px] scrollbar-hide border-gray-100/50 bg-white rounded-lg py-2 px-2 overflow-x-auto h-[400px]">
+    <div className="text-sm md:text-md lg:text-lg border-[0.8px] dark:bg-black/80 dark:border-black/80  dark:text-white border-gray-100/50 bg-white rounded-lg py-2 px-2  h-[400px] relative shadow-md">
       <div className="relative flex items-center justify-between mb-5">
         <h2 className="font-bold"> Sales Trends </h2>
 
@@ -111,11 +112,11 @@ const UserChart = () => {
           <select
             value={selectedOption}
             onChange={handleChange}
-            className="rounded-full bg-transparent p-1 border border-gray-200 focus:outline-none"
+            className="rounded-full bg-transparent px-2 py-0 lg:py-1 text-[.7rem] lg:text-sm border  border-gray-200 focus:outline-none"
           >
             <option
               value="daily"
-              className="bg-white hover:bg-gray-100 border-none"
+              className="px-1 py-2 hover:bg-gray-100 border-none text-xs"
             >
               Weekly
             </option>
@@ -126,10 +127,8 @@ const UserChart = () => {
         </div>
       </div>
 
-      <div className="chart-container relative h-full overflow-x-auto">
-        <div className="h-full w-[100%]">
-          <canvas ref={chartRef} width={80} />
-        </div>
+      <div className="h-[80%] bg-white dark:bg-black/80 dark:text-white dark:border-black/80 ">
+        <canvas ref={chartRef} width={80} />
       </div>
     </div>
   );

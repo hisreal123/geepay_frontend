@@ -1,4 +1,4 @@
-import UserDarkMode from "./DarkMode";
+// import UserDarkMode from "./DarkMode";
 import logo from "/assets/Container/main_logo.svg";
 import { Link, useLocation } from "react-router-dom";
 // import { useMediaQuery } from "react-responsive";
@@ -43,12 +43,14 @@ const Sidebar = ({ isOpen }) => {
 
   return (
     <div
-      className={`h-full bg-[#F7F8FA] z-10 fixed lg:ml-0  w-[50px] lg:w-[80px] pb-5 ${
+      className={`h-full bg-[#F7F8FA] border-r border-grey-200 z-10 fixed lg:ml-0 w-[60px] lg:w-[80px] pb-5 ${
         isOpen ? "ml-0" : "-ml-80"
       } block md:block dark:bg-black/80 dark:text-white transition-margin pt-4`}
     >
       <div className="flex justify-center">
-        <img src={logo} alt="logo" className="h-8 w-8 " />
+        <Link to="/">
+          <img src={logo} alt="logo" className="h-8 w-8 " />
+        </Link>
       </div>
       <nav className="bg-[#F7F8FA] dark:bg-black/80 relative pt-3 border-r-1 border-grey-200 w-full h-full flex flex-col items-center justify-between">
         <ul className="w-full flex pt-3 flex-col items-center justify-center relative">
@@ -75,7 +77,6 @@ const Sidebar = ({ isOpen }) => {
           ))}
         </ul>
 
-        <UserDarkMode />
         <ul>
           {BtmIconsArray.map(({ Icon, link, variant }) => (
             <li

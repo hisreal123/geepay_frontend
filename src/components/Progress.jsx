@@ -67,30 +67,31 @@ const Progress = () => {
     },
   ];
   return (
-    <div className="bg-white border-[0.02px] border-gray-100/50  rounded-lg shadow-lg mt-4 px-3">
-      <div className="py-4 mt-4 top flex justify-between text-xs md:text-sm lg:text-md font-bold">
+    <div className="progress bg-white border-[0.02px] border-gray-100/50  rounded-lg shadow-lg px-3 h-u ">
+      <div className="py-2 mt-2 top flex justify-between text-xs md:text-sm lg:text-md font-bold">
         <h2 className=""> Top Platform </h2>
         <span className="text-[#34CAA5] cursor-pointer">See All</span>
       </div>
-
-      {progressData.map((data) => (
-        <div key={data.tag}>
-          <h2 className="font-bold text-sm lg:text-md py-2">{data.tag}</h2>
-          <ProgressBar
-            completed={data.completed}
-            bgColor={data.bgColor}
-            height={15}
-            isLabelVisible={false}
-            transitionDuration="2s"
-            animateOnRender={true}
-            transitionTimingFunction="ease-in-out"
-          />
-          <div className="flex justify-between py-2 text-gray-600 text-sm  md:text-md lg:text-md">
-            <h4>${data.amount}</h4>
-            <h4>{data.rate}</h4>
+      <div className="h-[500px] overflow-y-scroll">
+        {progressData.map((data) => (
+          <div key={data.tag}>
+            <h2 className="font-bold text-sm lg:text-md py-2">{data.tag}</h2>
+            <ProgressBar
+              completed={data.completed}
+              bgColor={data.bgColor}
+              height={15}
+              isLabelVisible={false}
+              transitionDuration="2s"
+              animateOnRender={true}
+              transitionTimingFunction="ease-in-out"
+            />
+            <div className="flex justify-between py-2 text-gray-600 text-sm  md:text-md lg:text-md">
+              <h4>${data.amount}</h4>
+              <h4>{data.rate}</h4>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

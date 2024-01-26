@@ -45,10 +45,10 @@ const Cards = ({ custom_style }) => {
   ];
 
   return (
-    <div className={`grid grid-cols-2 gap-2 ${custom_style}`}>
+    <div className={`grid grid-cols-2  gap-4  ${custom_style} `}>
       {cards.map((data) => (
         <div
-          className="cardDetails border-[0.02px] border-gray-100/50  rounded-lg bg-white px-2 py-3 shadow-md"
+          className="cardDetails dark:bg-black/60  border-[0.02px] dark:border-black/80 border-gray-100/50  rounded-lg bg-white px-2 py-3 shadow-md"
           key={data.price}
         >
           <div className="tp flex justify-between">
@@ -59,15 +59,15 @@ const Cards = ({ custom_style }) => {
               <img src={sales_chart} alt="" className="w-[50%]" />
             )}
           </div>
-          <h1 className="my-2 text-md lg:text-xl lg:my-5  text-[#898989]">
+          <h1 className="my-4 text-md lg:text-xl lg:my-4  text-[#898989] dark:text-white">
             {data.name}
           </h1>
-          <p className="prc  text-lg lg:text-2xl text-[#3A3F51] my-3 font-bold">
+          <p className="prc  text-lg lg:text-2xl text-[#3A3F51] my-3 font-bold dark:text-white">
             {data.price}
           </p>
           <div className="flex">
             <span
-              className={`text-xs flex items-center px-[.3rem] py-[.2rem] rounded-full ${
+              className={`text-xs flex items-center px-[.3rem] lg:px-[.5rem] lg:py-[.2rem] rounded-full dark:text-white ${
                 data.checkRate
                   ? "bg-[#34CAA5]/[30%] text-[#34CAA5]"
                   : "bg-[#ED544E]/[30%] text-[#ED544E]"
@@ -80,10 +80,12 @@ const Cards = ({ custom_style }) => {
               )}
               {data.rate}%
             </span>
-            <span className="text-[#606060] text-[.6rem] md:text-sm lg:text-md ml-1">
+            <span className="text-[#606060] text-[.6rem] md:text-sm lg:text-md ml-1 dark:text-white">
               vs. previous month
             </span>
           </div>
+
+          
         </div>
       ))}
     </div>

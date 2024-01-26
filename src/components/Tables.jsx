@@ -1,12 +1,10 @@
-import { CompactTable } from "@table-library/react-table-library/compact";
-import { useTheme } from "@table-library/react-table-library/theme";
-import { getTheme } from "@table-library/react-table-library/baseline";
 import dowload_d from "/assets/dowload_d.svg";
 import user_img1 from "/assets/profile_images/img1.jpg";
 import user_img2 from "/assets/profile_images/img2.jpg";
 import user_img3 from "/assets/profile_images/img3.jpg";
 import user_img4 from "/assets/profile_images/img4.jpg";
 import user_img5 from "/assets/profile_images/img5.jpg";
+import { Table } from "flowbite-react";
 
 const Tables = () => {
   const nodes = [
@@ -52,107 +50,77 @@ const Tables = () => {
     },
   ];
 
-  const data = { nodes };
-
-  const theme = useTheme([
-    getTheme(),
-    {
-      Table: `
-        --data-table-library_grid-template-columns:  250px 150px 25% 25% 50%;
-      `,
-      BaseCell: `
-        &:nth-of-type(2) {
-          left: 0px;
-        }
-
-        &:nth-of-type(2) {
-          left: 250px;
-        }
-      `,
-    },
-  ]);
-
+  const options = { month: "short", day: "numeric", year: "numeric" };
   const formatDate = (date) => {
-    const options = { year: "numeric", month: "short", day: "numeric" };
-    return date.toLocaleDateString("en-US", options);
+    return new Intl.DateTimeFormat("en-US", options).format(date);
   };
 
-  const COLUMNS = [
-    {
-      label: "Name",
-      renderCell: (item) => (
-        <div className="flex items-center">
-          <div>
-            <div className="relative flex h-[20px] w-[20px] lg:h-[32px] lg:w-[32px] rounded-full lg:block justify-center items-center">
-              <img
-                src={item.avatar}
-                alt={`${item.name}'s profile pic`}
-                aria-label={`${item.name}'s profile pic`}
-                className="h-full w-full rounded-full object-cover inline-block"
-              />
-            </div>
-          </div>
-          <span className="ml-1 text-xs py-3 md:text-sm lg:text-md font-bold text-black">
-            {item.name}
-          </span>
-        </div>
-      ),
-    },
-    {
-      label: "Date",
-
-      renderCell: (item) => (
-        <span className="text-xs md:text-sm lg:text-md">
-          {formatDate(item.date)}
-        </span>
-      ),
-    },
-    {
-      label: "Amount",
-      renderCell: (item) => (
-        <span className="text-xs md:text-sm lg:text-md font-bold text-black">
-          {item.amount}
-        </span>
-      ),
-    },
-    {
-      label: "Status",
-      renderCell: (item) => (
-        <span
-          className={`text-xs md:text-sm lg:text-md ${
-            item.status === "Refund" ? "text-[#ED544E]" : "text-[#34CAA5]"
-          }`}
-        >
-          {item.status}
-        </span>
-      ),
-    },
-    {
-      label: "Invoice",
-      renderCell: () => (
-        <span className="text-xs md:text-sm lg:text-md flex space-x-2 items-center">
-          <img src={dowload_d} alt="download_document" />
-          <span className="text-black">View</span>
-        </span>
-      ),
-    },
-  ];
-
   return (
-    <div className="relative max-w-[100] bg-white border-[0.02px] border-gray-100/50  rounded-lg lg:overflow-x-hidden">
-      <div className="py-4 px-3 top flex justify-between text-xs md:text-sm lg:text-md font-bold">
-        <h2 className=""> Last Orders </h2>
-        <span className="text-[#34CAA5] cursor-pointer">See All</span>
+    <>
+      <div className="lg:-mt-[125px] bg-white h-fit relative dark:bg-transparent dark:border-0 dark:text-white border-[0.02px] border-gray-100/50 rounded-lg overflow-x-auto shadow-md">
+        <div className="py-4 px-5 top flex justify-between text-xs md:text-sm lg:text-md font-bold">
+          <h2 className=""> Last Orders </h2>
+          <span className="text-[#34CAA5] cursor-pointer">See All</span>
+        </div>
+        <div className="overflow-x-auto">
+          <Table>
+            <Table.Head className="font-bold text-grey-200">
+              <Table.HeadCell className="">Name</Table.HeadCell>
+              <Table.HeadCell className="">Date</Table.HeadCell>
+              <Table.HeadCell className="">Amount</Table.HeadCell>
+              <Table.HeadCell className="">Status</Table.HeadCell>
+              <Table.HeadCell className="">Invoice</Table.HeadCell>
+            </Table.Head>
+            <Table.Body className="divide-y">
+              {nodes.map((node, index) => (
+                <Table.Row
+                  key={index}
+                  className="bg-white dark:bg-transparent dark:text-white "
+                >
+                  <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                    <div className="flex items-center text-xs md:text-sm lg:text-md font-bold text-black dark:text-white">
+                      <div className="relative mr-2 flex h-[20px] w-[20px] lg:h-[32px] lg:w-[32px] rounded-full lg:block justify-center items-center">
+                        <img
+                          src={node.avatar}
+                          alt={`${node.name}'s profile pic`}
+                          aria-label={`${node.name}'s profile pic`}
+                          className="h-full w-full rounded-full object-cover inline-block"
+                        />
+                      </div>
+                      {node.name}
+                    </div>
+                  </Table.Cell>
+
+                  <Table.Cell className=" relative">
+                    <span className="md:text-sm lg:text-md dark:text-white">
+                      {formatDate(node.date)}
+                    </span>
+                  </Table.Cell>
+                  <Table.Cell className="text-xs md:text-sm lg:text-md font-bold text-black dark:text-white">
+                    {node.amount}
+                  </Table.Cell>
+                  <Table.Cell
+                    className={`text-xs md:text-sm lg:text-md ${
+                      node.status === "Refund"
+                        ? "text-[#ED544E]"
+                        : "text-[#34CAA5]"
+                    }`}
+                  >
+                    {node.status}
+                  </Table.Cell>
+                  <Table.Cell className="relative dark:text-white">
+                    <div className="flex space-x-2 text-xs md:text-md lg:text-[1rem] dark:text-white">
+                      <img src={dowload_d} alt="download_document" />
+                      <span className="text-black dark:text-white">View</span>
+                    </div>
+                  </Table.Cell>
+                </Table.Row>
+              ))}
+            </Table.Body>
+          </Table>
+        </div>
       </div>
-      <div className="table-container">
-        <CompactTable
-          columns={COLUMNS}
-          data={data}
-          theme={theme}
-          // layout={{ custom: true }}
-        />
-      </div>
-    </div>
+    </>
   );
 };
 
