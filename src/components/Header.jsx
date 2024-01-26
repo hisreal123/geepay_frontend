@@ -53,7 +53,7 @@ const Header = ({ toggleSidebar }) => {
 
         <div className="flex items-center ">
           <FcMenu
-            className="md:hidden text-4xl -mr-5"
+            className="md:hidden text-4xl -mr-3"
             onClick={toggleSidebar}
           />
         </div>

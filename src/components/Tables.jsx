@@ -64,19 +64,16 @@ const Tables = () => {
         </div>
         <div className="overflow-x-auto">
           <Table>
-            <Table.Head className="font-bold text-grey-200">
-              <Table.HeadCell className="">Name</Table.HeadCell>
-              <Table.HeadCell className="">Date</Table.HeadCell>
-              <Table.HeadCell className="">Amount</Table.HeadCell>
-              <Table.HeadCell className="">Status</Table.HeadCell>
-              <Table.HeadCell className="">Invoice</Table.HeadCell>
+            <Table.Head className="font-bold border-b border-grey-100 text-grey-200 bg-white ">
+              <Table.HeadCell className="bg-white">Name</Table.HeadCell>
+              <Table.HeadCell className="bg-white">Date</Table.HeadCell>
+              <Table.HeadCell className="bg-white">Amount</Table.HeadCell>
+              <Table.HeadCell className="bg-white">Status</Table.HeadCell>
+              <Table.HeadCell className="bg-white">Invoice</Table.HeadCell>
             </Table.Head>
             <Table.Body className="divide-y">
               {nodes.map((node, index) => (
-                <Table.Row
-                  key={index}
-                  className="bg-white dark:bg-transparent dark:text-white "
-                >
+                <Table.Row key={index} className="bg-white ">
                   <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
                     <div className="flex items-center text-xs md:text-sm lg:text-md font-bold text-black dark:text-white">
                       <div className="relative mr-2 flex h-[20px] w-[20px] lg:h-[32px] lg:w-[32px] rounded-full lg:block justify-center items-center">
