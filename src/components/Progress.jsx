@@ -31,37 +31,51 @@ const Progress = () => {
       completed: 20,
     },
     {
-      tag: "Artisan Aisle",
+      tag: "Tech Haven",
       rate: "+10%",
-      amount: "1,800,000",
-      bgColor: "#54C5EB",
+      amount: "3,200,000",
+      bgColor: "#4CAF50",
       completed: 40,
     },
     {
-      tag: "Toy Troop",
+      tag: "Fashion Emporium",
       rate: "+8%",
-      amount: "1,200,000",
-      bgColor: "#FFB74A",
+      amount: "1,800,000",
+      bgColor: "#FF9800",
+      completed: 75,
+    },
+    {
+      tag: "Gourmet Delights",
+      rate: "+12%",
+      amount: "1,000,000",
+      bgColor: "#E91E63",
+      completed: 90,
+    },
+    {
+      tag: "Artistic Creations",
+      rate: "+20%",
+      amount: "4,500,000",
+      bgColor: "#795548",
       completed: 30,
     },
     {
-      tag: "Toy Troop",
-      rate: "+5%",
-      amount: "1,700,000",
-      bgColor: "#FF4A55",
-      completed: 20,
+      tag: "Fitness Hub",
+      rate: "+18%",
+      amount: "3,000,000",
+      bgColor: "#FFC107",
+      completed: 50,
     },
   ];
   return (
-    <div className="bg-white shadow-lg mt-4 px-3">
-      <div className=" py-4 mt-4 top flex justify-between text-xs md:text-sm lg:text-md font-bold">
+    <div className="bg-white border-[0.02px] border-gray-100/50  rounded-lg shadow-lg mt-4 px-3">
+      <div className="py-4 mt-4 top flex justify-between text-xs md:text-sm lg:text-md font-bold">
         <h2 className=""> Top Platform </h2>
         <span className="text-[#34CAA5] cursor-pointer">See All</span>
       </div>
 
       {progressData.map((data) => (
         <div key={data.tag}>
-          <h2 className="font-bold">{data.tag}</h2>
+          <h2 className="font-bold text-sm lg:text-md py-2">{data.tag}</h2>
           <ProgressBar
             completed={data.completed}
             bgColor={data.bgColor}
@@ -71,7 +85,7 @@ const Progress = () => {
             animateOnRender={true}
             transitionTimingFunction="ease-in-out"
           />
-          <div className="flex justify-between py-2 text-gray-600">
+          <div className="flex justify-between py-2 text-gray-600 text-sm  md:text-md lg:text-md">
             <h4>${data.amount}</h4>
             <h4>{data.rate}</h4>
           </div>

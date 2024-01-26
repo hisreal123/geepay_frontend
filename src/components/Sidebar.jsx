@@ -1,5 +1,6 @@
 import UserDarkMode from "./DarkMode";
 import logo from "/assets/Container/main_logo.svg";
+import { Link, useLocation } from "react-router-dom";
 // import { useMediaQuery } from "react-responsive";
 
 import {
@@ -18,11 +19,11 @@ import {
 } from "iconsax-react";
 
 const TopIconsArray = [
-  { Icon: Category, link: "/category", variant: "Bulk" },
+  { Icon: Category, link: "/", variant: "Bulk" },
   { Icon: TrendUp, link: "/trend" },
   { Icon: Profile2User, link: "/profile" },
-  { Icon: Box, link: "/box" },
-  { Icon: DiscountShape, link: "/discount" },
+  { Icon: Box, link: "/notification" },
+  { Icon: DiscountShape, link: "/pSettings" },
   { Icon: InfoCircle, link: "/info" },
 ];
 
@@ -38,31 +39,38 @@ const Sidebar = ({ isOpen }) => {
   //   query: "(max-width: 600px)",
   // });
 
+  const location = useLocation();
+
   return (
     <div
-      className={`h-full z-10 fixed lg:ml-0 w-[80px] md:w-[80] ${
+      className={`h-full bg-[#F7F8FA] z-10 fixed lg:ml-0  w-[50px] lg:w-[80px] pb-5 ${
         isOpen ? "ml-0" : "-ml-80"
-      } block md:block dark:bg-black dark:text-white transition-margin`}
+      } block md:block dark:bg-black/80 dark:text-white transition-margin pt-4`}
     >
-      <nav className="bg-[#F7F8FA] dark:bg-black pt-3 border-r-1 border-grey-200 w-full h-full flex flex-col items-center justify-between">
+      <div className="flex justify-center">
+        <img src={logo} alt="logo" className="h-8 w-8 " />
+      </div>
+      <nav className="bg-[#F7F8FA] dark:bg-black/80 relative pt-3 border-r-1 border-grey-200 w-full h-full flex flex-col items-center justify-between">
         <ul className="w-full flex pt-3 flex-col items-center justify-center relative">
-          <li className="mb-2">
-            <a href="#">
-              <img src={logo} alt="logo" className="h-8 w-8" />
-            </a>
-          </li>
           {TopIconsArray.map(({ Icon, link, variant }) => (
             <li
               key={link}
-              className="relative mb-[20px] border-r-3 hover:border-black text-[#B7B0B0] dark:text-white"
+              className={`flex items-center before:content-[''] before:absolute before:right-0 before:h-[21px] before:w-[3px] dark:before:bg-white before:bg-black/80 before:rounded-tl-md before:rounded-bl-md before:transition-all before:duration-300 mb-[20px] text-[#B7B0B0] dark:text-white ${
+                location.pathname === link
+                  ? "before:opacity-100"
+                  : "before:opacity-0"
+              } hover:before:opacity-100 focus:before:opacity-100 active:before:opacity-100`}
             >
-              <a href={link}>
+              <Link
+                to={link}
+                className="flex items-center justify-center h-10 w-full relative"
+              >
                 <Icon
-                  size={23}
+                  size={26}
                   aria-hidden
                   variant={variant ? "Bulk" : "Broken"}
                 />
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -72,7 +80,11 @@ const Sidebar = ({ isOpen }) => {
           {BtmIconsArray.map(({ Icon, link, variant }) => (
             <li
               key={link}
-              className="relative mb-[20px] border-r-3 hover:border-black text-[#B7B0B0] dark:text-white"
+              className={`flex items-center before:content-[''] before:absolute before:right-0 before:h-[21px] before:w-[3px] before:bg-black before:rounded-tl-md before:rounded-bl-md before:transition-all before:duration-300 mb-[20px] text-[#B7B0B0] dark:text-white ${
+                location.pathname === link
+                  ? "before:opacity-100"
+                  : "before:opacity-0"
+              } hover:before:opacity-100 focus:before:opacity-100 active:before:opacity-100`}
             >
               <a href={link}>
                 <Icon

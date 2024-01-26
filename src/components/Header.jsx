@@ -37,15 +37,15 @@ const Header = ({ toggleSidebar }) => {
   );
 
   return (
-    <div className="bg-[#FAFAFA] border-b border-grey-200 py-[18px] px-2  flex justify-between items-center">
+    <div className="bg-[#FAFAFA] border-b border-grey-200 py-[18px] px-2  flex justify-between items-center lg:ml-[80px] dark:text-white dark:bg-black/80">
       <h3 className="font-bold">Dashboard</h3>
       <div className="wrapper flex space-x-4">
-        <div className="search overflow-hidden rounded-full border-[.6px] border-[#DADDDD] px-2 bg-white space-x-2 md:flex  items-center hidden lg:w-[349px]">
+        <div className="search overflow-hidden rounded-full border-[.6px] border-[#DADDDD] px-2 bg-white space-x-2 md:flex  items-center hidden lg:w-[349px] dark:bg-black/80 dark:border-black/80">
           <IoIosSearch className="text-xl text-[#A3A3A3]" />
           <input
             type="searh"
             placeholder="Search..."
-            className=" placeholder:text-xs outline-none py-1 w-full lg:placeholder:text-sm "
+            className=" placeholder:text-xs outline-none py-1 w-full lg:placeholder:text-sm dark:bg-black/80"
           />
         </div>
 

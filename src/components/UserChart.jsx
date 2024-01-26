@@ -9,6 +9,7 @@ const UserChart = () => {
     if (chartInstance.current) {
       chartInstance.current.destroy();
     }
+
     const myChartRef = chartRef.current.getContext("2d");
 
     // Create a linear gradient
@@ -39,11 +40,10 @@ const UserChart = () => {
               5000, 19000, 4000, 28000, 8000, 45000, 8000, 20000, 32000, 5000,
               30000, 28000,
             ],
-            backgroundColor: "rgba(52, 202, 165, 0.10)",
+            backgroundColor: "rgba(52, 202, 165, 0.20)",
             hoverBackgroundColor: gradient,
             borderColor: ["rgba(52, 202, 165, 1)"],
             borderWidth: 0,
-            barPercentage: 0.6,
             borderRadius: {
               topLeft: 200,
               topRight: 200,
@@ -54,6 +54,23 @@ const UserChart = () => {
         ],
       },
       options: {
+        maintainAspectRatio: false,
+        responsive: true,
+        autoPadding: true,
+        scales: {
+          x: {
+            border: {
+              dash: [0, 6],
+              display: false,
+            },
+          },
+          y: {
+            border: {
+              dash: [19, 6],
+              display: false,
+            },
+          },
+        },
         y: {
           beginAtZero: true,
           max: 50000,
@@ -62,8 +79,13 @@ const UserChart = () => {
             callback: function (value) {
               return value.toLocaleString(); // format the tick values as needed
             },
-            maxTricksLimit: 6,
+            maxTicksLimit: 7,
             suggestedMax: 50000,
+          },
+        },
+        plugins: {
+          legend: {
+            display: false,
           },
         },
       },
@@ -74,12 +96,14 @@ const UserChart = () => {
 
   const handleChange = (event) => {
     setSelectedOption(event.target.value);
-    // Add your logic for handling the selected option here
   };
 
+  const totalLabel = chartRef.data;
+  console.log(totalLabel);
+
   return (
-    <div className="text-sm md:textmd lg:text-lg bg-white rounded-lg py-2 px-2 overflow-x-auto shadow-md">
-      <div className="top flex justify-between">
+    <div className="user-chart text-sm md:textmd lg:text-lg border-[0.8px] scrollbar-hide border-gray-100/50 bg-white rounded-lg py-2 px-2 overflow-x-auto h-[400px]">
+      <div className="relative flex items-center justify-between mb-5">
         <h2 className="font-bold"> Sales Trends </h2>
 
         <div className="selectBarOptions text-xs lg:text-sm">
@@ -102,7 +126,11 @@ const UserChart = () => {
         </div>
       </div>
 
-      <canvas ref={chartRef} />
+      <div className="chart-container relative h-full overflow-x-auto">
+        <div className="h-full w-[100%]">
+          <canvas ref={chartRef} width={80} />
+        </div>
+      </div>
     </div>
   );
 };

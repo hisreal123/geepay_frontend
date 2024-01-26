@@ -82,15 +82,17 @@ const Tables = () => {
       label: "Name",
       renderCell: (item) => (
         <div className="flex items-center">
-          <div className="relative h-[42px] w-[42px] rounded-full flex justify-center items-center">
-            <img
-              src={item.avatar}
-              alt={`${item.name}'s profile pic`}
-              aria-label={`${item.name}'s profile pic`}
-              className="h-full w-full rounded-full object-cover"
-            />
+          <div>
+            <div className="relative flex h-[20px] w-[20px] lg:h-[32px] lg:w-[32px] rounded-full lg:block justify-center items-center">
+              <img
+                src={item.avatar}
+                alt={`${item.name}'s profile pic`}
+                aria-label={`${item.name}'s profile pic`}
+                className="h-full w-full rounded-full object-cover inline-block"
+              />
+            </div>
           </div>
-          <span className="text-xs py-3 md:text-sm lg:text-md font-bold text-black">
+          <span className="ml-1 text-xs py-3 md:text-sm lg:text-md font-bold text-black">
             {item.name}
           </span>
         </div>
@@ -137,17 +139,19 @@ const Tables = () => {
   ];
 
   return (
-    <div className="bg-white border-[0.02px] border-gray-100/50  rounded-lg">
-      <div className=" py-4 px-3 top flex justify-between text-xs md:text-sm lg:text-md font-bold">
+    <div className="relative max-w-[100] bg-white border-[0.02px] border-gray-100/50  rounded-lg lg:overflow-x-hidden">
+      <div className="py-4 px-3 top flex justify-between text-xs md:text-sm lg:text-md font-bold">
         <h2 className=""> Last Orders </h2>
         <span className="text-[#34CAA5] cursor-pointer">See All</span>
       </div>
-      <CompactTable
-        columns={COLUMNS}
-        data={data}
-        theme={theme}
-        layout={{ custom: true, horizontalScroll: true }}
-      />
+      <div className="table-container">
+        <CompactTable
+          columns={COLUMNS}
+          data={data}
+          theme={theme}
+          // layout={{ custom: true }}
+        />
+      </div>
     </div>
   );
 };

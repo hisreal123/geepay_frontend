@@ -21,3 +21,19 @@
 .scrollbar-hide:hover {
   scrollbar-color: auto auto;
 }
+
+/* UserChart */
+
+@media (max-width: 768px) {
+  .chart-container canvas {
+    width: 100%;
+  }
+
+  .chart-container {
+    overflow-x: scroll;
+  }
+
+  user-chart {
+    overflow-x: scroll;
+  }
+}
