@@ -84,8 +84,6 @@ const Cards = ({ custom_style }) => {
               vs. previous month
             </span>
           </div>
-
-          
         </div>
       ))}
     </div>

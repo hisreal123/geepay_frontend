@@ -72,7 +72,7 @@ const Sidebar = ({ isOpen }) => {
             </li>
           ))}
 
-          <div className="darkMode_toggle bg-white  p-[4px] lg:p-[8px] rounded-full flex flex-col items-center space-y-8">
+          <div className="darkMode_toggle bg-white  p-[4px]  lg:p-[8px] rounded-full flex flex-col items-center space-y-8">
             <div className=" rounded-full bg-[#34CAA5] h-[30px] w-[30px] flex justify-center items-center ">
               <img
                 src={brightness}
@@ -93,7 +93,7 @@ const Sidebar = ({ isOpen }) => {
           {BtmIconsArray.map(({ Icon, link, variant }) => (
             <li
               key={link}
-              className={`flex items-center before:content-[''] before:absolute before:right-0 before:h-[21px] before:w-[3px] before:bg-black before:rounded-tl-md before:rounded-bl-md before:transition-all before:duration-300 mb-[16px] text-[#B7B0B0] dark:text-white ${
+              className={`flex pb-3 items-center before:content-[''] before:absolute before:right-0 before:h-[21px] before:w-[3px] before:bg-black before:rounded-tl-md before:rounded-bl-md before:transition-all before:duration-300 mb-[16px] text-[#B7B0B0] dark:text-white ${
                 location.pathname === link
                   ? "before:opacity-100"
                   : "before:opacity-0"
