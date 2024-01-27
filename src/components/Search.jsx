@@ -8,7 +8,7 @@ const Search = () => {
   return (
     <>
       <div
-        className={`z-20 absolute top-0 left-0 ${
+        className={`z-30 absolute top-0 left-0 ${
           search ? "h-screen w-full" : "hidden"
         } bg-white px-3`}
       >
