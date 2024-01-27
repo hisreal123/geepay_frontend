@@ -1,6 +1,6 @@
 const Profile = () => {
   return (
-    <div className="lg:ml-[80px] flex justify-center items-center h-screen relative">
+    <div className="lg:ml-[80px] flex justify-center items-center h-screen relative px-3 ">
       Why did the math book look sad?{" "}
       <b className="ml-1"> Because it had too many problems.</b>
     </div>
