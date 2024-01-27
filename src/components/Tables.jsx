@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import dowload_d from "/assets/dowload_d.svg";
 import user_img1 from "/assets/profile_images/img1.jpg";
 import user_img2 from "/assets/profile_images/img2.jpg";
@@ -57,7 +58,7 @@ const Tables = () => {
 
   return (
     <>
-      <div className="lg:-mt-[125px] bg-white h-fit relative dark:bg-transparent dark:border-0 dark:text-white border-[0.02px] border-gray-100/50 rounded-lg overflow-x-auto shadow-md">
+      <div className="lg:-mt-[125px] bg-white h-fit relative border-[1px] border-[#EDF2F7] rounded-[14px] dark:text-white border-gray-100/50  overflow-x-auto ">
         <div className="py-4 px-5 top flex justify-between text-xs md:text-sm lg:text-md font-bold">
           <h2 className=""> Last Orders </h2>
           <span className="text-[#34CAA5] cursor-pointer">See All</span>
@@ -76,15 +77,17 @@ const Tables = () => {
                 <Table.Row key={index} className="bg-white ">
                   <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
                     <div className="flex items-center text-xs md:text-sm lg:text-md font-bold text-black dark:text-white">
-                      <div className="relative mr-2 flex h-[20px] w-[20px] lg:h-[32px] lg:w-[32px] rounded-full lg:block justify-center items-center">
-                        <img
-                          src={node.avatar}
-                          alt={`${node.name}'s profile pic`}
-                          aria-label={`${node.name}'s profile pic`}
-                          className="h-full w-full rounded-full object-cover inline-block"
-                        />
-                      </div>
-                      {node.name}
+                      <Link to="/profile">
+                        <div className="relative mr-2 flex h-[20px] w-[20px] lg:h-[32px] lg:w-[32px] rounded-full lg:block justify-center items-center">
+                          <img
+                            src={node.avatar}
+                            alt={`${node.name}'s profile pic`}
+                            aria-label={`${node.name}'s profile pic`}
+                            className="h-full w-full rounded-full object-cover inline-block"
+                          />
+                        </div>
+                      </Link>
+                      <Link to="/profile">{node.name}</Link>
                     </div>
                   </Table.Cell>
 

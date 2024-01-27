@@ -6,7 +6,7 @@ export const useLayoutContext = () => useContext(LayoutContext);
 
 // eslint-disable-next-line react/prop-types
 export const LayoutProvider = ({ children }) => {
-  const [isSidebarOpen, setSidebarOpen] = useState(true);
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
     setSidebarOpen(!isSidebarOpen);

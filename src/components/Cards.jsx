@@ -48,7 +48,7 @@ const Cards = ({ custom_style }) => {
     <div className={`grid grid-cols-2  gap-4  ${custom_style} `}>
       {cards.map((data) => (
         <div
-          className="cardDetails dark:bg-black/60  border-[0.02px] dark:border-black/80 border-gray-100/50  rounded-lg bg-white px-2 py-3 shadow-md"
+          className="cardDetails dark:bg-black/60  border-[1px] border-[#EDF2F7] rounded-[14px] bg-white px-2 py-3"
           key={data.price}
         >
           <div className="tp flex justify-between">

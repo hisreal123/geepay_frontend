@@ -103,7 +103,7 @@ const UserChart = () => {
   console.log(totalLabel);
 
   return (
-    <div className="text-sm md:text-md lg:text-lg border-[0.8px] dark:bg-black/80 dark:border-black/80  dark:text-white border-gray-100/50 bg-white rounded-lg py-2 px-2  h-[400px] relative shadow-md">
+    <div className="text-sm md:text-md lg:text-lg dark:bg-black/80 dark:border-black/80  dark:text-white border-[1px] border-[#EDF2F7] rounded-[14px] bg-white  py-2 px-2  h-[400px] relative">
       <div className="relative flex items-center justify-between mb-5">
         <h2 className="font-bold"> Sales Trends </h2>
 

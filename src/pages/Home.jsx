@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <div
       className={`${
-        isSidebarOpen ? "lg:ml-[80px]" : "lg:ml-0"
+        !isSidebarOpen ? "lg:ml-[80px]" : "lg:ml-0"
       } ark:bg-black/80 relative main_content_body bg-[#FAFAFA] grid grid-cols-1 lg:grid-cols-5 gap-4 
       lg-gap-5  px-3 lg:px-4 pt-[20px] h-fit overflow-hidden`}
     >

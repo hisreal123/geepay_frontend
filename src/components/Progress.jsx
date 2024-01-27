@@ -67,7 +67,7 @@ const Progress = () => {
     },
   ];
   return (
-    <div className=" z-10 progress bg-white border-[0.02px] border-gray-100/50  rounded-lg shadow-lg px-3 h-u ">
+    <div className=" z-10 progress bg-white border-[1px] border-[#EDF2F7] rounded-[14px] px-3 ">
       <div className="py-2 mt-2 top flex justify-between text-xs md:text-sm lg:text-md font-bold">
         <h2 className=""> Top Platform </h2>
         <span className="text-[#34CAA5] cursor-pointer">See All</span>

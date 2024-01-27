@@ -5,10 +5,14 @@ import search_icon from "/assets/search.svg";
 import { useState } from "react";
 import Search from "./Search";
 import { useLayoutContext } from "./utils/LayoutContext";
+import Mini_profile from "./Mini_profile";
+import Notification_modal from "./Notification_modal";
 
 // eslint-disable-next-line react/prop-types
 const Header = () => {
   const [search, setSearch] = useState(false);
+  const [m_profile, setM_profile] = useState(false);
+  const [nofi, setNoti] = useState(false);
 
   const formatDate = (date) => {
     const options = { year: "numeric", month: "short", day: "numeric" };
@@ -16,10 +20,10 @@ const Header = () => {
   };
 
   const handleProfileClick = () => {
-    alert("nothing here so far ... ");
+    setM_profile(!m_profile);
   };
   const handleNotification = () => {
-    alert("You've Got no notification yet !!! ");
+    setNoti(!nofi);
   };
 
   const handleShowSearch = () => {
@@ -28,19 +32,9 @@ const Header = () => {
 
   /** Calender sub_component*/
   const CalenderComponent = (
-    <div className="calender md:flex items-center hidden space-x-4">
+    <div className="calender md:flex items-center space-x-4 hidden">
       <Calendar />
       <span className="text-sm md:font-bold">{formatDate(new Date())}</span>
-
-      <div>
-        <span className="h-2 w-2 mt-1 ml-4 bg-red-600 rounded-full absolute"></span>
-        <img
-          src={bell}
-          alt="notification"
-          className="h-8 w-8 hidden md:block"
-          onClick={handleNotification}
-        />
-      </div>
     </div>
   );
 
@@ -49,10 +43,12 @@ const Header = () => {
   return (
     <>
       {search && <Search />}
+      {m_profile && <Mini_profile />}
+      {nofi && <Notification_modal />}
 
       <div
         className={` ${
-          isSidebarOpen ? "lg:ml-[80px] bg-red-300" : "lg:ml-0 bg-green-300"
+          !isSidebarOpen ? "lg:ml-[80px] bg-red-300" : "lg:ml-0 bg-green-300"
         }bg-[#FAFAFA] border-b border-grey-200 py-[18px] px-2   flex justify-between items-center`}
       >
         <h3 className="font-bold">Dashboard</h3>
@@ -81,8 +77,18 @@ const Header = () => {
             />
           </div>
 
+          <div className="cursor-pointer flex items-center">
+            <span className="h-2 w-2 -mt-3 ml-4 bg-red-600 rounded-full absolute"></span>
+            <img
+              src={bell}
+              alt="notification"
+              className="h-8 w-8"
+              onClick={handleNotification}
+            />
+          </div>
+
           <div
-            className="profile flex items-center border-[.6px] border-[#DADDDD] w-fit rounded-full space-x-2 p-1"
+            className="profile flex items-center border-[.6px] border-[#DADDDD] w-fit rounded-full space-x-2 p-1 cursor-pointer"
             onClick={handleProfileClick}
           >
             <div className="h-8 w-8 relative rounded-full flex justify-center items-center ">
@@ -107,8 +113,3 @@ const Header = () => {
 };
 
 export default Header;
-
-// <FcMenu
-//   className="md:hidden text-4xl -mr-3"
-//   onClick={toggleSidebar}
-// />

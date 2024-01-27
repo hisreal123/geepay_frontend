@@ -42,7 +42,7 @@ const Sidebar = () => {
     <>
       <div
         className={`h-full bg-[#F7F8FA] border-r border-grey-200 z-30 fixed lg:ml-0 w-[60px] lg:w-[80px] shadow-md pb-5 ${
-          !isSidebarOpen ? "ml-0" : "-ml-[60px] lg:-ml-[80px]"
+          isSidebarOpen ? "ml-0" : "-ml-[60px] "
         } block md:block dark:bg-black/80 dark:text-white transition-margin pt-4`}
       >
         <div className="flex justify-center">
