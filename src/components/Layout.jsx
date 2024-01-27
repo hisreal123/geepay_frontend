@@ -1,22 +1,16 @@
 import Sidebar from "./Sidebar";
 import Header from "./Header";
-import { useState } from "react";
+
 import { Outlet } from "react-router-dom";
 
 const DashboardLayout = () => {
-  const [isSidebarOpen, setSidebarOpen] = useState(false);
-
-  const toggleSidebar = () => {
-    setSidebarOpen(!isSidebarOpen);
-  };
-
   return (
     <>
       <div className="dashboard-layout min-h-screen h-screen pb-[10px] grid grid-col-2">
-        <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+        <Sidebar />
 
         <div>
-          <Header toggleSidebar={toggleSidebar} />
+          <Header />
 
           <div id="detail">
             <Outlet />
